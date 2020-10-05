@@ -1,0 +1,15 @@
+.variant-option{
+    border-radius: 0 0 10px 10px !important;
+    padding: 20px 0 !important;
+}
+.helping-options{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: auto; 
+    column-gap: 10px;
+    row-gap: 15px;
+    justify-items: center;
+}
+.card-image{
+    width: 100%;
+}

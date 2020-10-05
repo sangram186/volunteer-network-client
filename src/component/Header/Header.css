@@ -1,0 +1,14 @@
+.logo{
+    width: 200px;
+}
+.banner{
+    background-color: transparent !important;
+}
+.banner-search-bar{
+    max-width: 30%;
+    /* margin: 10px auto; */
+}
+.helping-options Button{
+    background-color: #FF7044;
+    color: white;
+}
