@@ -23,6 +23,7 @@ const Login = () => {
             newUser.email = email;
             newUser.name = displayName;
             setLogin(newUser);
+            sessionStorage.setItem('userInfo', JSON.stringify(newUser));
             history.replace(from);
           }).catch((error) => {
             var errorMessage = error.message;

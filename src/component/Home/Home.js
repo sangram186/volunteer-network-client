@@ -6,16 +6,18 @@ import Banner from '../Banner/Banner';
 
 const Home = () => {
 
-    
+
 
     return (
         <>
             <Header></Header>
             <Banner></Banner>
-            <div className="container helping-options">
-                {
-                    fakeData.map((data, id) => <VolunteeringOption data={data} key={id}></VolunteeringOption>)
-                }
+            <div className="container">
+                <div className="row">
+                    {
+                        fakeData.map((data, id) => <VolunteeringOption data={data} key={id}></VolunteeringOption>)
+                    }
+                </div>
             </div>
 
         </>

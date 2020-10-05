@@ -12,9 +12,12 @@ const Register = () => {
     const history = useHistory();
     const { id } = useParams();
     const selectedData = fakeData.find(data => data.id === parseInt(id));
-    const { info } = useContext(loginInfo);
-    const { login,  } = info;
-    const { email, name } = login;
+    // const { info } = useContext(loginInfo);
+    // const { login,  } = info;
+    // const { email, name } = login;
+    const sessionData = sessionStorage.getItem('userInfo');
+    const userData = JSON.parse(sessionData)
+    const {name, email} = userData;
 
     const [allData, setAllData] = useState({
         fullName: name,
