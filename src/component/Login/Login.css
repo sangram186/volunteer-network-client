@@ -1,0 +1,10 @@
+
+
+.login-with-google{
+    height: 35vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 19px;
+}

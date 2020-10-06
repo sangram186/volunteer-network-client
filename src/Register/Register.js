@@ -1,10 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useHistory, useParams } from 'react-router-dom';
-import { loginInfo } from '../App';
 import fakeData from '../fakeData';
 import logo from '../logos/Group 1329.png';
-
+import './Register.css';
 
 
 const Register = () => {
@@ -15,7 +14,7 @@ const Register = () => {
     // const { info } = useContext(loginInfo);
     // const { login,  } = info;
     // const { email, name } = login;
-    const sessionData = sessionStorage.getItem('userInfo');
+    const sessionData = sessionStorage.getItem('userData');
     const userData = JSON.parse(sessionData)
     const {name, email} = userData;
 
@@ -46,7 +45,7 @@ const Register = () => {
 
         if (allData.email && allData.fullName) {
             const volunteerData = { ...allData };
-            fetch('http://localhost:4000/addedOptions', {
+            fetch('https://blooming-chamber-56833.herokuapp.com/addedOptions', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(volunteerData),
@@ -60,7 +59,7 @@ const Register = () => {
 
     return (
         <div style={{ width: '30%', margin: '0 auto' }}>
-            <div className="logo">
+            <div className="register-logo">
                 <img src={logo} alt="" />
             </div>
             <div className="register-form">

@@ -1,32 +1,35 @@
 import React, { useEffect, useState } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Button, Col, Container, Row } from 'react-bootstrap';
 import Header from '../Header/Header';
 import AddEvent from './AddEvent';
 import RegisterList from './RegisterList';
 
 const Admin = () => {
-    const [registerList, setRegisterList] = useState([]);
-
-    const [displayItem, setDisplayItem] = useState(true);
-    useEffect(() => {
-        fetch('http://localhost:4000/allData')
-        .then(res => res.json())
-        .then(data => setRegisterList(data))
-    }, [])
+    // const [registerList, setRegisterList] = useState([]);
 
     
+    // useEffect(() => {
+    //     loadAllData();
+    // }, [])
+    // const loadAllData = () => {
+    //     fetch('https://blooming-chamber-56833.herokuapp.com/allData')
+    //     .then(res => res.json())
+    //     .then(data => setRegisterList(data))
+    // }
+
+    const [displayItem, setDisplayItem] = useState(true);
     return (
         <div className="container">
             <Header></Header>
             <Container>
                 <Row>
                     <Col md={3}>
-                        <button onClick={() => setDisplayItem(true)}>Volunteer Register list</button>
-                        <button onClick={() => setDisplayItem(false)}>Add Event</button>
+                        <Button className="mt-4" variant='link' onClick={() => setDisplayItem(true)}><span>🧑‍🤝‍🧑</span> Volunteer Register list</Button>
+                        <Button variant='link' onClick={() => setDisplayItem(false)}><span>➕</span> Add Event</Button>
                     </Col>
                     <Col md={9}>
                         {
-                            displayItem ? <RegisterList registerList={registerList}></RegisterList> : 
+                            displayItem ? <RegisterList ></RegisterList> : 
                             <AddEvent></AddEvent>
                         }
                         

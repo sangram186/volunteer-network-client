@@ -1,6 +1,7 @@
 .logo{
     width: 200px;
 }
+
 .banner{
     background-color: transparent !important;
 }
@@ -10,5 +11,21 @@
 }
 .helping-options Button{
     background-color: #FF7044;
+    color: white;
+}
+.nav-admin{
+    background: #595353;
+    padding: 5px 10px;
+    color: white;
+    border-radius: 5px;
+}
+.nav-register{
+    background: #007bff;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.nav-register:hover, .nav-admin:hover {
     color: white;
 }

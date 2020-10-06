@@ -28,7 +28,7 @@ const AddEvent = () => {
         }
     }
     return (
-        <div>
+        <div style={{backgroundColor: '#e5e5e5', padding: '18px', borderRadius: '10px'}}>
             <Form>
                 <Row>
                     <Col>

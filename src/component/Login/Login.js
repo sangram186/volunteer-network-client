@@ -5,6 +5,9 @@ import * as firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from '../../firebase.config';
 import { loginInfo } from '../../App';
+import googleIcon from '../../logos/google-icon.png'
+import { Button } from 'react-bootstrap';
+import './Login.css';
 
 firebase.initializeApp(firebaseConfig);
 const Login = () => {
@@ -23,7 +26,7 @@ const Login = () => {
             newUser.email = email;
             newUser.name = displayName;
             setLogin(newUser);
-            sessionStorage.setItem('userInfo', JSON.stringify(newUser));
+            sessionStorage.setItem('userData', JSON.stringify(newUser));
             history.replace(from);
           }).catch((error) => {
             var errorMessage = error.message;
@@ -31,14 +34,17 @@ const Login = () => {
           });
     }
     return (
-        <div>
-            <div className="logo">
+        <div className="container m-auto text-center" style={{ width: '30%'}}>
+            <div className="register-logo">
                 <img src={logo} alt=""/>
             </div>
-            <div className="login-with-google">
+            <div className="login-with-google register-form">
                 <h2>Login with</h2>
                 <div className="login-button">
-                    <button onClick={handleLogin}>Continue with google</button>
+                    <Button variant="outline-dark" onClick={handleLogin}>
+                        <img style={{width: '30px'}} src={googleIcon} alt=""/>
+                        Continue with google
+                    </Button>
                 </div>
             </div>
         </div>

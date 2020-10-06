@@ -1,21 +1,31 @@
-import React, { useState } from 'react';
-import { Table } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import { Button, Table } from 'react-bootstrap';
 
-const RegisterList = (props) => {
-    console.log(props.registerList)
+const RegisterList = () => {
+    const [registerList, setRegisterList] = useState([]);
+
+    
+    useEffect(() => {
+        loadAllData();
+    }, [])
+    const loadAllData = () => {
+        fetch('https://blooming-chamber-56833.herokuapp.com/allData')
+        .then(res => res.json())
+        .then(data => setRegisterList(data))
+    }
 
 
 
     const handleRemoveItem = (id) => {
-        fetch(`http://localhost:4000/deleteFromAdmin/${id}`, {
+        fetch(`https://blooming-chamber-56833.herokuapp.com/deleteFromAdmin/${id}`, {
             method: 'DELETE',
         })
 
         .then(res => res.json())
         .then(result => {
-            console.log('delete successfully')
+            console.log('deleted successfully')
         })
-        window.location.reload()
+        loadAllData();
     }
 
     const [displayItem, setDisplayItem] = useState(true);
@@ -33,7 +43,7 @@ const RegisterList = (props) => {
                 </thead>
                 <tbody>
                     {
-                        props.registerList.map(data => {
+                        registerList.map((data) => {
                             const {fullName, email, title, date, _id} = data
                             return (
                                 
@@ -42,7 +52,7 @@ const RegisterList = (props) => {
                                     <td>{email}</td>
                                     <td>{date}</td>
                                     <td>{title}</td>
-                                    <td><button onClick={() => handleRemoveItem(_id)}><span>❌</span></button></td>
+                                    <td><Button variant="danger" onClick={() => handleRemoveItem(_id)}><span>❌</span></Button></td>
                                 </tr>
                                 
                             )
